@@ -1,7 +1,6 @@
 package com.brabii.dev.blog.entities;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,15 +15,13 @@ public class User {
 	private long idUser;
 	private String firstName;
 	private String lastName;
+	private String email;
 	private String password;
 	private Date registeredAt;
-	private String email;
-	// relation one to many
-	private List<Post> posts;
-
+//	id_user, first_name, last_name, email, password, registered_at
 	@Id
 	@Column(name = "id_user")
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // TODO à revoir
+//	@GeneratedValue(strategy = GenerationType.IDENTITY) // TODO à revoir
 	public long getIdUser() {
 		return idUser;
 	}
@@ -76,15 +73,6 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	@Column(name = "id_post") // TODO : à revoir
-	public List<Post> getPosts() {
-		return posts;
-	}
-
-	public void setPosts(List<Post> posts) {
-		this.posts = posts;
 	}
 
 }
